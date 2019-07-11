@@ -34,12 +34,12 @@ public class ExporController {
 
     	//------工作表1
     	Sheet sheet1 = em.createSheet("用户和省份");
-    	sheet1.setBlockSpace(3);//同一个sheet中各个block的间隔为3行
+    	sheet1.setBlockSpace(3);//设置block的间隔
     	
     	List<Map<String,Object>> userList = exportService.getUserList(params);
     	Block block1 = sheet1.createBlock();
-    	block1.setHeader("名字","手机号","身份证","邮箱");
-    	block1.setHeaderKeys("name","phonenumber","idcard","email");
+    	block1.setHeader("名字","手机号","身份证","邮箱");//设置表头
+    	block1.setHeaderKeys("name","phonenumber","idcard","email");//设置表头对应的key
     	block1.setData(userList);
     	
     	List<Map<String,Object>> provinceList = exportService.getProvinceList(params);
